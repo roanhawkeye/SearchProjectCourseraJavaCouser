@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Scanner;
 import java.util.Spliterator;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -18,8 +19,9 @@ public class Searcher {
 		Path path = Paths.get("data/airports.dat");
 		
 		
-		
-		String toFindCity = "Goroka";
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter city name: ");
+		String toFindCity = scan.next();
 		
 		//Use spliterator to obtain stream of airports
 		try {
