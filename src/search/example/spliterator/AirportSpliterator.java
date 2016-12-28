@@ -21,9 +21,9 @@ public class AirportSpliterator implements Spliterator<Airport>{
 	public boolean tryAdvance(Consumer<? super Airport> action) {
 		if(this.lineSpliterator.tryAdvance(line -> {
 			String[] data = line.split(",");
-			this.city = data[2];
-			this.country = data[3];
-			this.code3 = data[4];
+			this.city = data[2].replaceAll("\"","");
+			this.country = data[3].replaceAll("\"","");
+			this.code3 = data[4].replaceAll("\"","");
 		})){
 			Airport a = new Airport(city, country, code3);
 			action.accept(a);

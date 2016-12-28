@@ -19,8 +19,7 @@ public class Searcher {
 		
 		
 		
-		Airport[] airports = null;
-		String toFindCity = "San Diego";
+		String toFindCity = "Goroka";
 		
 		//Use spliterator to obtain stream of airports
 		try {
@@ -29,16 +28,16 @@ public class Searcher {
 			Spliterator<String> lineSpliterator  = lines.spliterator();
 			Spliterator<Airport> personSpliterator = new AirportSpliterator(lineSpliterator);
 			
-			Stream<Airport> airports_ = StreamSupport.stream(personSpliterator, false);
-			airports_.forEach(System.out::println);
+			Stream<Airport> airports = StreamSupport.stream(personSpliterator, false);
 			
+			String airportCode = LinearSearchAirport.findAirportCode(toFindCity,  airports.toArray(Airport[]::new));
+			System.out.println(airportCode);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		
-		String airportCode = LinearSearchAirport.findAirportCode(toFindCity, airports);
 		
 	}
 
