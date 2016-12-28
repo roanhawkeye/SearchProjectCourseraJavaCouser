@@ -7,6 +7,16 @@ public class Airport {
 	private String code3;
 	
 	
+	public Airport(){
+		
+	}
+	
+	public Airport(String city, String country, String code3) {
+		this.city = city;
+		this.country = country;
+		this.code3 = code3;
+	}
+	
 	public String getCity() {
 		return city;
 	}
@@ -24,6 +34,11 @@ public class Airport {
 	}
 	public void setCode3(String code3) {
 		this.code3 = code3;
+	}
+
+	@Override
+	public String toString() {
+		return "City: " + city + ", Country: " + country + ", Code: " + code3;
 	}
 	
 	
