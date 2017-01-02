@@ -1,6 +1,6 @@
 package search.example.model;
 
-public class Airport {
+public class Airport implements Comparable<Airport>{
 
 	private String city;
 	private String country;
@@ -39,6 +39,11 @@ public class Airport {
 	@Override
 	public String toString() {
 		return "City: " + city + ", Country: " + country + ", Code: " + code3;
+	}
+
+	@Override
+	public int compareTo(Airport o) {
+		return city.compareTo(o.getCity());
 	}
 	
 	
